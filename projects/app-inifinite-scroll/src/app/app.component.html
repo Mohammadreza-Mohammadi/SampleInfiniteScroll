@@ -1,0 +1,11 @@
+<ng-container *ngIf="posts$ | async as listOfPost">
+  <app-post-list
+    appInfiniteScrollIntersection
+    (scrolled)="onScroll()"
+    style="height: 350px; overflow: auto"
+    [listOfPost]="listOfPost"
+    style="height: 360px"
+  ></app-post-list>
+</ng-container>
+
+<app-loading-indicator *ngIf="isLoading$ | async"> </app-loading-indicator>
